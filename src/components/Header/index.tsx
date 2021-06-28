@@ -1,7 +1,7 @@
 import logoImg from '../../assets/logo.svg'
 import { Container, Content } from './styles'
 
-interface HeaderProps {
+interface HeaderProps { //componente header recebe de App.tsx via props a função de abrir a modal no botão 
     onOpenNewTransactionModal: () => void;
 }
 
