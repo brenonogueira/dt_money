@@ -1,29 +1,11 @@
-import { useEffect, useState } from "react";
-import { api } from "../../services/api";
+import { useContext } from "react";
+import { TransactionsContext } from "../../TransactionsContext";
 import { Container } from "./styles";
 
 export function TransactionsTable() {
 
-  //Interface p/ informar ao nosso state qual é o formato da Transaction
-  interface Transaction {
-    id: string,
-    title: string,
-    type: string,
-    amount: number,
-    category: string,
-    createdAt: string
-  }
-
-  //estado para armazenar vetor de transactions
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
-
-  //get dados da tabela transactions
-  useEffect(() => {
-    api.get('transaction')
-      .then((response) => {
-        setTransactions(response.data.transactions);
-      })
-  }, [])
+  //useContext 
+  const { transactions }  = useContext(TransactionsContext)
 
   return (
     <Container>
